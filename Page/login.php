@@ -20,7 +20,7 @@
         ];
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://localhost/login_activity/Request/User.php");
+        curl_setopt($ch, CURLOPT_URL, "http://https://practice-api-20ti.onrender.com/Request/User.php");
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -30,7 +30,7 @@
         $result = json_decode($response, true);
 
         if ($result && isset($result['success']) && $result['success'] == true) {
-            header("Location: Index.php");
+            header("Location: index.php");
             exit();
         } else {
             if (isset($result['icon'])) {
@@ -42,7 +42,7 @@
             if (isset($result['message'])) {
                 $message = $result['message'];
             } else {
-                $message = 'May problema sa koneksyon sa server.';
+                $message = 'invalid server connection.';
             }
 
             echo "<script>
